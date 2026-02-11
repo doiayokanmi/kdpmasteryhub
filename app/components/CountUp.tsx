@@ -20,8 +20,8 @@ function CountUp({
   const ref = useRef<HTMLSpanElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.4 })
   const [count, setCount] = useState(0)
-  const frameRef = useRef<number>()
-  const startTimeRef = useRef<number>()
+  const frameRef = useRef<number | undefined>(undefined) // ✅ Fixed
+  const startTimeRef = useRef<number | undefined>(undefined) // ✅ Fixed
   const hasAnimatedRef = useRef(false)
 
   useEffect(() => {
@@ -49,7 +49,7 @@ function CountUp({
     frameRef.current = requestAnimationFrame(animate)
 
     return () => {
-      if (frameRef.current) {
+      if (frameRef.current !== undefined) {
         cancelAnimationFrame(frameRef.current)
       }
     }
@@ -86,7 +86,7 @@ function Stat({ value, title, subtitle, highlight = false }: StatProps) {
     >
       <div
         className={`text-5xl md:text-6xl font-bold ${
-          highlight ? 'text-[#f604a5]' : 'text-white'
+          highlight ? 'text-[#7C2D12]' : 'text-white'
         }`}
       >
         {value}
@@ -151,13 +151,13 @@ export default function HighlightText() {
         <Stat
           value={<CountUp end={1000} suffix="+" />}
           title="Books Published"
-          subtitle="By our students worldwide"
+          subtitle="By our students"
         />
 
         <Stat
           value={<CountUp end={4.9} decimals={1} />}
           title="Average Rating"
-          subtitle="From 70+ reviews on course platform"
+          subtitle="From 100+ reviews"
         />
 
         <Stat
