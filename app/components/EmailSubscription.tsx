@@ -77,40 +77,39 @@ export default function EmailSubscription() {
   }
 
   return (
-    <div className="p-24">
-      <section className="relative rounded-3xl p-6 overflow-hidden bg-gradient-to-br from-orange-600 via-orange-500 to-amber-500">
+    <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 overflow-hidden bg-gradient-to-br from-orange-600 via-orange-500 to-amber-500">
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden opacity-10">
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-white rounded-full blur-3xl" />
-        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-white rounded-full blur-3xl" />
+        <div className="absolute -top-12 sm:-top-24 -left-12 sm:-left-24 w-48 h-48 sm:w-96 sm:h-96 bg-white rounded-full blur-3xl" />
+        <div className="absolute -bottom-12 sm:-bottom-24 -right-12 sm:-right-24 w-48 h-48 sm:w-96 sm:h-96 bg-white rounded-full blur-3xl" />
       </div>
 
-      <div className="max-w-5xl mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-6xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12 items-center">
           {/* Left Side - Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-white"
+            className="text-white text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-              <Sparkles className="w-4 h-4" />
-              <span className="text-sm font-medium">Join 5,000+ Students</span>
+            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1.5 sm:px-4 sm:py-2 mb-4 sm:mb-6">
+              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span className="text-xs sm:text-sm font-medium">Join 5,000+ Students</span>
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 leading-tight">
               Get Free KDP Resources
             </h2>
             
-            <p className="text-lg md:text-xl text-white/90 mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0">
               Subscribe to receive exclusive tips, templates, and strategies to 
               boost your Amazon KDP publishing success.
             </p>
 
             {/* Benefits List */}
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4 max-w-md mx-auto lg:mx-0">
               {benefits.map((benefit, index) => (
                 <motion.div
                   key={index}
@@ -118,12 +117,12 @@ export default function EmailSubscription() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex items-center gap-3"
+                  className="flex items-center gap-3 justify-center lg:justify-start"
                 >
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
-                    <benefit.icon className="w-5 h-5" />
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-1.5 sm:p-2 flex-shrink-0">
+                    <benefit.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
-                  <span className="text-white/90">{benefit.text}</span>
+                  <span className="text-white/90 text-sm sm:text-base">{benefit.text}</span>
                 </motion.div>
               ))}
             </div>
@@ -135,13 +134,13 @@ export default function EmailSubscription() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl shadow-2xl p-8 md:p-10"
+            className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 md:p-10 max-w-lg mx-auto lg:max-w-none"
           >
-            <div className="mb-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+            <div className="mb-5 sm:mb-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                 Start Your Free Journey
               </h3>
-              <p className="text-gray-600">
+              <p className="text-sm sm:text-base text-gray-600">
                 No spam, unsubscribe anytime. We respect your inbox.
               </p>
             </div>
@@ -153,8 +152,8 @@ export default function EmailSubscription() {
                   Email address
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                    <Mail className="w-5 h-5 text-gray-400" />
+                  <div className="absolute inset-y-0 left-0 pl-3 sm:pl-4 flex items-center pointer-events-none">
+                    <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
                   </div>
                   <input
                     type="email"
@@ -169,11 +168,16 @@ export default function EmailSubscription() {
                     disabled={status === 'loading' || status === 'success'}
                     className={`
                       w-full
-                      pl-12
-                      pr-4
-                      py-4
+                      pl-10
+                      sm:pl-12
+                      pr-3
+                      sm:pr-4
+                      py-3
+                      sm:py-4
                       border-2
                       rounded-xl
+                      text-sm
+                      sm:text-base
                       text-gray-900
                       placeholder-gray-400
                       focus:outline-none
@@ -212,10 +216,12 @@ export default function EmailSubscription() {
                 disabled={status === 'loading' || status === 'success'}
                 className={`
                   w-full
-                  py-4
+                  py-3
+                  sm:py-4
                   rounded-xl
                   font-semibold
-                  text-lg
+                  text-base
+                  sm:text-lg
                   transition-all
                   duration-300
                   flex
@@ -234,7 +240,7 @@ export default function EmailSubscription() {
               >
                 {status === 'loading' && (
                   <>
-                    <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                    <svg className="animate-spin h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 24 24">
                       <circle
                         className="opacity-25"
                         cx="12"
@@ -256,7 +262,7 @@ export default function EmailSubscription() {
                 
                 {status === 'success' && (
                   <>
-                    <Check className="w-5 h-5" />
+                    <Check className="w-4 h-4 sm:w-5 sm:h-5" />
                     <span>Successfully Subscribed!</span>
                   </>
                 )}
@@ -264,7 +270,7 @@ export default function EmailSubscription() {
                 {status !== 'loading' && status !== 'success' && (
                   <>
                     <span>Get Free Resources</span>
-                    <Mail className="w-5 h-5" />
+                    <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
                   </>
                 )}
               </button>
@@ -274,34 +280,34 @@ export default function EmailSubscription() {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="bg-green-50 border border-green-200 rounded-xl p-4"
+                  className="bg-green-50 border border-green-200 rounded-xl p-3 sm:p-4"
                 >
-                  <p className="text-green-800 text-center">
+                  <p className="text-green-800 text-center text-sm sm:text-base">
                     🎉 Welcome aboard! Check your email for your free resources.
                   </p>
                 </motion.div>
               )}
 
               {/* Privacy Note */}
-              <p className="text-xs text-gray-500 text-center">
+              <p className="text-xs sm:text-sm text-gray-500 text-center leading-relaxed">
                 By subscribing, you agree to receive marketing emails from DSAM.
                 You can unsubscribe at any time.
               </p>
             </form>
 
             {/* Trust Badges */}
-            <div className="mt-6 pt-6 border-t border-gray-100">
-              <div className="flex items-center justify-center gap-4 text-xs text-gray-500">
+            <div className="mt-5 sm:mt-6 pt-5 sm:pt-6 border-t border-gray-100">
+              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs text-gray-500">
                 <div className="flex items-center gap-1">
-                  <Check className="w-4 h-4 text-green-500" />
+                  <Check className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" />
                   <span>No spam</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <Check className="w-4 h-4 text-green-500" />
+                  <Check className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" />
                   <span>Unsubscribe anytime</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <Check className="w-4 h-4 text-green-500" />
+                  <Check className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" />
                   <span>100% Free</span>
                 </div>
               </div>
@@ -310,8 +316,38 @@ export default function EmailSubscription() {
         </div>
       </div>
 
-      
+      {/* Floating Elements */}
+      <motion.div
+        animate={{
+          y: [0, -20, 0],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+        className="absolute top-10 sm:top-20 right-4 sm:right-10 hidden lg:block"
+      >
+        <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-2 sm:p-4 text-white">
+          <p className="text-xs sm:text-sm font-semibold">📚 Free Templates</p>
+        </div>
+      </motion.div>
+
+      <motion.div
+        animate={{
+          y: [0, 20, 0],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+        className="absolute bottom-10 sm:bottom-20 left-4 sm:left-10 hidden lg:block"
+      >
+        <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-2 sm:p-4 text-white">
+          <p className="text-xs sm:text-sm font-semibold">🚀 Weekly Tips</p>
+        </div>
+      </motion.div>
     </section>
-    </div>
   )
 }
