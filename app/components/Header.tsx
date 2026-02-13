@@ -12,7 +12,7 @@ function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
       {/* TOP BAR */}
       <div className="flex items-center justify-between px-6 md:px-12 py-4 text-gray-800">
-        <a href="#">
+        <a href="/">
           <Image
             src="/logo.png"
             alt="Logo"
@@ -29,10 +29,10 @@ function Header() {
         </nav>
 
         <div className="hidden md:flex space-x-6 items-center">
-          <a className="border border-[#F97A0B] px-4 py-2 rounded text-[#F97A0B]">
+          <a href='/login' className="border border-[#F97A0B] px-4 py-2 rounded text-[#F97A0B]">
             Login
           </a>
-          <a className="bg-[#F97A0B] text-white px-4 py-2 rounded">
+          <a href='/signup' className="bg-[#F97A0B] text-white px-4 py-2 rounded">
             Sign Up
           </a>
         </div>
