@@ -171,7 +171,7 @@ export default function HighlightText() {
         />
 
         <Stat
-          value={<CountUp end={100} suffix="K+$" />}
+          value={<CountUp end={100} suffix="K+" />}
           title="Our Earnings"
           subtitle="Combined revenue generated"
           highlight
