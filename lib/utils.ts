@@ -124,17 +124,17 @@ export const highList = [
 export const testimonials = [
   {
     id: 1,
-    name: 'Sarah Johnson',
+    name: 'Damilola Ayokanmi',
     role: 'Published Author',
     image: 'https://i.pravatar.cc/150?img=1',
     rating: 5,
-    text: 'DSAM completely transformed my KDP journey. I went from zero to publishing 15 books in just 6 months. The step-by-step tutorials are incredible!',
+    text: 'Damilola completely transformed my KDP journey. I went from zero to publishing 15 books in just 6 months. The step-by-step tutorials are incredible!',
     booksPublished: 15,
     monthlyEarnings: '$2,500',
   },
   {
     id: 2,
-    name: 'Michael Chen',
+    name: 'Mr. Babs Olumide',
     role: 'KDP Entrepreneur',
     image: 'https://i.pravatar.cc/150?img=12',
     rating: 5,
@@ -144,7 +144,7 @@ export const testimonials = [
   },
   {
     id: 3,
-    name: 'Emily Rodriguez',
+    name: 'Luqman Adewale',
     role: 'Full-Time Author',
     image: 'https://i.pravatar.cc/150?img=5',
     rating: 5,
@@ -154,7 +154,7 @@ export const testimonials = [
   },
   {
     id: 4,
-    name: 'David Thompson',
+    name: 'Ibrahim Damilola',
     role: 'Beginner Success Story',
     image: 'https://i.pravatar.cc/150?img=13',
     rating: 5,
@@ -164,7 +164,7 @@ export const testimonials = [
   },
   {
     id: 5,
-    name: 'Lisa Patel',
+    name: 'Adetorera Aduke',
     role: 'Design Expert',
     image: 'https://i.pravatar.cc/150?img=9',
     rating: 5,
@@ -174,7 +174,7 @@ export const testimonials = [
   },
   {
     id: 6,
-    name: 'James Wilson',
+    name: 'Eniola Adebayo',
     role: 'Marketing Specialist',
     image: 'https://i.pravatar.cc/150?img=14',
     rating: 5,

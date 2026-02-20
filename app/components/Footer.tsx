@@ -81,15 +81,15 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center gap-3 text-gray-400 hover:text-orange-500 transition-colors">
                   <Phone className="w-5 h-5 flex-shrink-0" />
-                  <a href="tel:+1234567890" className="text-sm">
-                    +1 (234) 567-890
+                  <a href="tel:+2348057896279" className="text-sm">
+                    +234 (805) 789-6279
                   </a>
                 </div>
                 <div className="flex items-start gap-3 text-gray-400">
                   <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
                   <span className="text-sm">
-                    123 Publishing Street<br />
-                    Lagos, Nigeria
+                    83B, Bamobi Compound, Iyaa Area<br />
+                    Saki, Oyo State, Nigeria
                   </span>
                 </div>
               </div>

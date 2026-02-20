@@ -155,7 +155,7 @@ export default function HighlightText() {
         <Stat
           value={<CountUp end={700} suffix="+" />}
           title="Students Enrolled"
-          subtitle="Learning KDP with DSAM"
+          subtitle="Learning KDP with us"
         />
 
         <Stat
@@ -171,8 +171,8 @@ export default function HighlightText() {
         />
 
         <Stat
-          value={<CountUp end={100} suffix="K+" />}
-          title="DSAM's Earnings"
+          value={<CountUp end={100} suffix="K+$" />}
+          title="Our Earnings"
           subtitle="Combined revenue generated"
           highlight
         />

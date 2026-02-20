@@ -329,7 +329,7 @@ export default function EmailSubscription() {
         className="absolute top-10 sm:top-20 right-4 sm:right-10 hidden lg:block"
       >
         <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-2 sm:p-4 text-white">
-          <p className="text-xs sm:text-sm font-semibold">📚 Free Templates</p>
+          <p className="text-xs sm:text-sm font-semibold">📚 Book Cover Templates</p>
         </div>
       </motion.div>
 
