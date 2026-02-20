@@ -1,19 +1,31 @@
-import { motion } from 'motion/react'
+'use client'
+
+import { motion } from 'framer-motion'
 import React from 'react'
 
 const containerVariants = {
   hidden: {},
   show: {
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.2,
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
     },
   },
 }
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
+  hidden: { 
+    opacity: 0, 
+    y: 20 
+  },
+  show: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.46, 0.45, 0.94], // Custom easing for smooth motion
+    }
+  },
 }
 
 function TheText() {
@@ -31,7 +43,7 @@ function TheText() {
         variants={containerVariants}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.2, margin: "0px 0px -100px 0px" }}
         className="
           mx-auto
           max-w-4xl
@@ -50,6 +62,7 @@ function TheText() {
             sm:text-3xl
             md:text-4xl
             leading-snug
+            will-change-transform
           "
         >
           Whether you're a{' '}
@@ -65,6 +78,7 @@ function TheText() {
             leading-relaxed
             max-w-2xl
             mx-auto
+            will-change-transform
           "
         >
           We provide the tools and resources you need to succeed in the world
@@ -79,6 +93,7 @@ function TheText() {
             leading-relaxed
             max-w-2xl
             mx-auto
+            will-change-transform
           "
         >
           Explore our services, learn from our expert guides, and take your

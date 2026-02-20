@@ -7,8 +7,6 @@ import { motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react'
 import { testimonials } from '@/lib/utils'
 
-
-
 /* ---------- STAR RATING COMPONENT ---------- */
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -35,11 +33,7 @@ function TestimonialCard({
 }) {
   return (
     <div className="relative flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] p-4">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+      <div
         className="
           bg-white
           rounded-2xl
@@ -65,6 +59,7 @@ function TestimonialCard({
             src={testimonial.image}
             alt={testimonial.name}
             className="w-16 h-16 rounded-full object-cover ring-4 ring-orange-100"
+            loading="lazy"
           />
           <div>
             <h3 className="font-bold text-lg text-gray-900">
@@ -99,7 +94,7 @@ function TestimonialCard({
             <p className="text-xs text-gray-600">Monthly Earnings</p>
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   )
 }
@@ -111,8 +106,9 @@ export default function TestimonialCarousel() {
       loop: true, 
       align: 'start',
       skipSnaps: false,
+      duration: 25, // Smooth slide duration
     },
-    [Autoplay({ delay: 4000, stopOnInteraction: false })]
+    [Autoplay({ delay: 5000, stopOnInteraction: false })]
   )
 
   const scrollPrev = useCallback(() => {
@@ -147,8 +143,12 @@ export default function TestimonialCarousel() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ 
+            duration: 0.5, 
+            ease: [0.25, 0.46, 0.45, 0.94]
+          }}
+          className="will-change-transform"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             What Our Students Say
@@ -163,7 +163,7 @@ export default function TestimonialCarousel() {
       {/* Carousel Container */}
       <div className="max-w-7xl mx-auto relative">
         <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex -ml-4">
+          <div className="flex">
             {testimonials.map((testimonial) => (
               <TestimonialCard key={testimonial.id} testimonial={testimonial} />
             ))}
@@ -186,11 +186,12 @@ export default function TestimonialCarousel() {
             rounded-full
             p-3
             shadow-lg
-            transition-all
-            duration-300
+            transition-colors
+            duration-200
             z-10
             hidden
             md:block
+            will-change-transform
           "
           aria-label="Previous testimonial"
         >
@@ -212,11 +213,12 @@ export default function TestimonialCarousel() {
             rounded-full
             p-3
             shadow-lg
-            transition-all
-            duration-300
+            transition-colors
+            duration-200
             z-10
             hidden
             md:block
+            will-change-transform
           "
           aria-label="Next testimonial"
         >
@@ -230,11 +232,11 @@ export default function TestimonialCarousel() {
               key={index}
               onClick={() => emblaApi?.scrollTo(index)}
               className={`
-                w-2 h-2 rounded-full transition-all duration-300
+                h-2 rounded-full transition-all duration-300
                 ${
                   index === selectedIndex
                     ? 'bg-orange-500 w-8'
-                    : 'bg-gray-300 hover:bg-gray-400'
+                    : 'bg-gray-300 hover:bg-gray-400 w-2'
                 }
               `}
               aria-label={`Go to testimonial ${index + 1}`}
@@ -247,14 +249,20 @@ export default function TestimonialCarousel() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="text-center mt-16"
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ 
+          duration: 0.5, 
+          ease: [0.25, 0.46, 0.45, 0.94]
+        }}
+        className="text-center mt-16 will-change-transform"
       >
         <p className="text-gray-600 mb-6">
           Ready to write your own success story?
         </p>
-        <button
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ duration: 0.2 }}
           className="
             bg-gradient-to-r
             from-orange-500
@@ -267,15 +275,16 @@ export default function TestimonialCarousel() {
             text-lg
             hover:from-orange-600
             hover:to-orange-700
-            transition-all
+            transition-colors
             duration-300
             shadow-lg
             hover:shadow-xl
-            hover:scale-105
+            will-change-transform
+            cursor-pointer
           "
         >
           Start Your Journey Today
-        </button>
+        </motion.button>
       </motion.div>
     </section>
   )
